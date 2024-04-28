@@ -10,10 +10,16 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+
+    <!-- Custom Style CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
   </head>
 
-  <body></body>
+  <body>
+    {% block 'body' %} {% endblock %}
+  </body>
 
+  {% block 'footer' %}
   <footer class="footer text-muted bg-dark py-5">
     <div class="container">
       <p class="float-end mb-1">
@@ -23,6 +29,8 @@
         >
       </p>
       <p class="mb-1">Hive - Best Place to Buy & Sell Services</p>
+      <p class="mb-0" Copyright {% now 'Y' %}><a href="">Hive</a></p>
     </div>
   </footer>
+  {% endblock %}
 </html>
