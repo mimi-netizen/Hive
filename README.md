@@ -1,6 +1,7 @@
 # Hive
 
 ![image](image/logo.png)
+
 Hive is a website where people can buy and sell services like housekeeping, tutoring, errand running, massage & accupuncture services and more!
 
 ## Virtual Environment
