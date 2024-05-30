@@ -1,0 +1,7 @@
+{% extends 'base/base.html' %} {% load static %} {% block 'title' %}
+<title>Hive . Home</title>
+{% endblock %} {% block 'body' %}
+<main>
+  <h1>{{ request.user.username}}</h1>
+</main>
+{% endblock %}
