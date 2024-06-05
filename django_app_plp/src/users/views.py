@@ -34,5 +34,15 @@ class RegisterView(View):
         register_form = UserCreationForm()
         return render(request, 'views/register.html', {'register_form': register_form})
     def post(self, request):
-        pass
+        register_form = UserCreationForm(data=request.POST)
+        if register_form.is_valid():
+            user = register_form.save()
+            user.refresh_from_db()
+            login(request, user)
+            messages.success(
+                request, f'User {user.username} registered succesfully.')
+            return redirect('home')
+        else: 
+            messages.error(request, f'An error occured trying to register.')
+            return render(request, 'views/register.html', {'register_form': register_form})
         
