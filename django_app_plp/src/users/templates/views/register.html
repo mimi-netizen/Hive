@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %} {% block 'body' %} {% load crispy_forms_tags %}
+{% load static %}
+
+<div class="text-center">
+  <main class="form-signin">
+    <form action="" method="post">
+      <img
+        class="mb-2"
+        src="{% static 'images/logo3.png' %}"
+        alt=""
+        width="110"
+        height="110"
+      />
+      {% csrf_token %} {{ register_form | crispy }}
+      <button class="w-100 rounded btn btn-md btn-danger" type="submit">
+        Register
+      </button>
+      <p class="mt-5 mb-3 text-muted">Copyright © 2024 Hive</p>
+    </form>
+  </main>
+</div>
+{% endblock %} {% block 'footer' %} {% endblock %}
