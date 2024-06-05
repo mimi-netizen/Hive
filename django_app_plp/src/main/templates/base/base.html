@@ -20,6 +20,14 @@
   </head>
 
   <body>
+    {% if messages %}
+    {% for message in messages%}
+    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %} >
+      {{ message }} -
+      {{ message.tags }}
+    </div>
+    {% endfor %}
+    {% endif%}
     {% block 'body' %} {% endblock %}
   </body>
 
