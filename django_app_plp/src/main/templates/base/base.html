@@ -28,20 +28,43 @@
     </div>
     {% endfor %}
     {% endif%}
+    {% block 'header' %}
+    <header class="p-3 bg-dark text-white w-100 nav-masthead">
+      <div class="container">
+         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+           <a href="{% url 'home' %}"
+                    class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img class="bi me-2" width="65" height="65" src="{% static 'images/logo3.png' %}"
+                        aria-label="Bootstrap">
+           </a>
+                {% if request.user.is_authenticated %}
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li>
+                        <a href="" class="nav-link px-2">Profile</a>
+                    </li>
+                </ul>
+                <div class="text-end">
+                    <a type="button" href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                </div>
+                {% endif %}
+         </div>
+      </div>
+    </header>
+    {% endblock %}
     {% block 'body' %} {% endblock %}
   </body>
 
   {% block 'footer' %}
-  <footer class="footer text-muted bg-dark py-5">
+  <footer class="footer text-white bg-dark py-5">
     <div class="container">
-      <p class="float-end mb-1">
-        Copyright © {% now 'Y' %} <a href="" class="text-black">Hive</a> by
-        <a href="https://github.com/mimi-netizen/Hive" class="text-black"
+      <p class="float-end mb-1 text-white">
+        Copyright © {% now 'Y' %} <a href="" >Hive</a> by
+        <a href="https://github.com/mimi-netizen/Hive" 
           >Celyne Kydd</a
         >
       </p>
-      <p class="mb-1">Hive - Best Place to Buy & Sell Services</p>
-      <p class="mb-0" Copyright {% now 'Y' %}><a href="">Hive</a></p>
+      <p class="mb-1 text-white">Hive - Best Place to Buy & Sell Services</p>
+      <p class="mb-0 text-white" Copyright {% now 'Y' %}><a href="">Hive</a></p>
     </div>
   </footer>
   {% endblock %}
