@@ -10,7 +10,9 @@
           The best place to buy or sell services, and we’ve made it that much
           easier.
         </p>
-        <a href="" class="btn btn-primary my-2">List Your Service</a>
+        <a href="{% url 'list' %}" class="btn btn-primary my-2"
+          >List Your Service</a
+        >
       </div>
       <div class="col-lg-6 col-md-8 mx-auto"></div>
     </div>
@@ -19,9 +21,7 @@
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         {% for listing in listings %}
-        <div class="col">
-          <p>{{listing.id}}</p>
-        </div>
+        <div class="col">{% include "components/listing_card.html" %}</div>
         {% endfor %}
       </div>
     </div>
